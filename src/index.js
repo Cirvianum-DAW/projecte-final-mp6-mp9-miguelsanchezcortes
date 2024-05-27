@@ -5,8 +5,7 @@
 // Import main page components based on the current page
 import { renderNavbar } from './components/Navbar';
 import { renderLoginPage } from './pages/LoginPage';
-// import { renderAdminPage } from './pages/AdminPage';
-// import { renderDashboardPage } from './pages/DashboardPage';
+import { renderDashboardPage } from './pages/DashboardPage';
 import { isAuthenticated } from './services/auth';
 
 // Main application logic
@@ -21,9 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (path === '/index.html' || path === '/') {
     console.log('Landing page');
   } else if (path === '/login.html') {
+    console.log('Login page');
     renderLoginPage();
-  } else if (path === '/admin.html') {
-    renderAdminPage();
   } else if (path === '/dashboard.html') {
     renderDashboardPage();
   }
