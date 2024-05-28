@@ -49,19 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
       // Establir la sessió
       localStorage.setItem('isAuthenticated', 'true');
       // Redirigeix a la pàgina d'usuari normal
-      window.location.href = './src/dashboard.html';
+      window.location.href = '/dashboard.html';
 
-      //if (user.admin === true) {
-        // Establir la sessió
-        //localStorage.setItem('isAuthenticated', 'true');
-        // Redirigeix a la pàgina d'administrador
-        //window.location.href = './src/dashboard.html';
-      //} else {
-        // Establir la sessió
-        //localStorage.setItem('isAuthenticated', 'true');
-        // Redirigeix a la pàgina d'usuari normal
-        //window.location.href = './src/dashboard.html';
-      //}
     } catch (error) {
       console.error(error);
       errorMessage.textContent = 'Login failed. Please try again.';

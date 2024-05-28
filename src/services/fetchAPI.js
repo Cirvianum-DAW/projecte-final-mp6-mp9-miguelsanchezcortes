@@ -1,9 +1,9 @@
 // import axios from 'axios';
 //url Pablo: https://6644bc5eb8925626f88fb873.mockapi.io/api/v1/
-//url propia: https://6644bc3ab8925626f88fb747.mockapi.io/
+//url propia: https://6644bc3ab8925626f88fb747.mockapi.io/api/v1/
 
 async function fetchFromApi(endpoint, options = {}) {
-  const url = `https://6644bc5eb8925626f88fb873.mockapi.io/api/v1/${endpoint}`;
+  const url = `https://6644bc3ab8925626f88fb747.mockapi.io/api/v1/${endpoint}`;
 
   const defaultHeaders = {
     'Content-Type': 'application/json',
