@@ -5,7 +5,7 @@ async function login(username, password) {
   // Fetch all users
   const users = await fetchFromApi('users');
 
-  console.log('users', users.data);
+  console.log('users', users);
 
   // Find the user with the matching username
   const user = users.find((user) => user.userName === username);

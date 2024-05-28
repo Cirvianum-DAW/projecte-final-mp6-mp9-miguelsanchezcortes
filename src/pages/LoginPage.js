@@ -46,17 +46,22 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('Form submitted');
       const user = await login(username, password);
 
-      if (user.admin === true) {
+      // Establir la sessió
+      localStorage.setItem('isAuthenticated', 'true');
+      // Redirigeix a la pàgina d'usuari normal
+      window.location.href = './src/dashboard.html';
+
+      //if (user.admin === true) {
         // Establir la sessió
-        localStorage.setItem('isAuthenticated', 'true');
+        //localStorage.setItem('isAuthenticated', 'true');
         // Redirigeix a la pàgina d'administrador
-        window.location.href = './src/dashboard.html';
-      } else {
+        //window.location.href = './src/dashboard.html';
+      //} else {
         // Establir la sessió
-        localStorage.setItem('isAuthenticated', 'true');
+        //localStorage.setItem('isAuthenticated', 'true');
         // Redirigeix a la pàgina d'usuari normal
-        window.location.href = './src/dashboard.html';
-      }
+        //window.location.href = './src/dashboard.html';
+      //}
     } catch (error) {
       console.error(error);
       errorMessage.textContent = 'Login failed. Please try again.';
