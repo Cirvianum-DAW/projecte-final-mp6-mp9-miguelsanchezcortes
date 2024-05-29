@@ -16,26 +16,17 @@ export function renderTodoItem(todo, onEdit, onDelete) {
     'mb-2'
   );
 
-  const title = document.createElement('span');
-  title.textContent = todo.title;
-  title.classList.add('mr-2', 'font-medium');
+  const name = document.createElement('span');
+  name.textContent = todo.name;
+  name.classList.add('mr-2', 'font-medium');
 
-  const status = document.createElement('span');
-  status.textContent = todo.status ? 'Completed' : 'Pending';
-  status.classList.add(
-    'px-2',
-    'py-1',
-    'text-white',
-    'text-sm',
-    'rounded',
-    todo.status ? 'bg-green-500' : 'bg-red-500'
-  );
+  const categoria = document.createElement('span');
+  categoria.textContent = "Categoria: " + todo.categoria;
+  categoria.classList.add('text-gray-500', 'text-sm');
 
-  const dueDate = document.createElement('span');
-  const date = new Date(todo.dueDate);
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  dueDate.textContent = date.toLocaleDateString(undefined, options);
-  dueDate.classList.add('text-gray-500', 'text-sm');
+  const image = document.createElement('img');
+  image.src = todo.image;
+  image.classList.add('mr-2');
 
   const buttonContainer = document.createElement('div');
 
@@ -47,9 +38,9 @@ export function renderTodoItem(todo, onEdit, onDelete) {
   buttonContainer.appendChild(editButton);
   buttonContainer.appendChild(deleteButton);
 
-  listItem.appendChild(title);
-  listItem.appendChild(status);
-  listItem.appendChild(dueDate);
+  listItem.appendChild(name);
+  listItem.appendChild(categoria);
+  listItem.appendChild(image);
   listItem.appendChild(buttonContainer);
 
   return listItem;

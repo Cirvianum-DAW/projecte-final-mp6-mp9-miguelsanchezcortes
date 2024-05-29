@@ -49,7 +49,6 @@ export async function renderDashboardPage() {
       await deleteTask(userId, todoId);
       todos = todos.filter((todo) => todo.id !== todoId);
       updateLocalStorage(userId, todos);
-      console.log('Hola');
       render();
     } catch (error) {
       console.error(error);
@@ -59,8 +58,29 @@ export async function renderDashboardPage() {
   function render() {
     todoListContainer.innerHTML = '';
     renderTodoList(todos, 'taskLists', handleEdit, handleDelete);
-    console.log('Hola');
   }
+
+  // function displayUserPreferences(user) {
+  //   // Retrieve the preferences from the user object
+  //   let preferences = user.preferencies || [];
+  
+  //   // Get the container where you want to display the preferences
+  //   const preferencesContainer = document.getElementById('taskListsContainer'); // replace 'preferences' with the actual id of your container
+  
+  //   // Clear the container
+  //   preferencesContainer.innerHTML = '';
+  
+  //   // Create and append a new element for each preference
+  //   preferences.forEach((preference) => {
+  //     const preferenceElement = document.createElement('p');
+  //     preferenceElement.textContent = preference;
+  //     preferencesContainer.appendChild(preferenceElement);
+  //   });
+  // }
+  
+  // // Call the function with the user object
+  // displayUserPreferences(user);
 
   render();
 }
+renderDashboardPage();
