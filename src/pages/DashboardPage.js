@@ -1,6 +1,6 @@
 // src/pages/Dashboard.js
 
-import { renderTodoList } from '../components/TodoList';
+import { renderTodoList } from '../components/todoList';
 import { deleteTask } from '../services/tasks';
 //import { displayErrorMessage } from '../components/errorMessage';
 import { updateLocalStorage } from '../utils/helpers';
@@ -19,14 +19,15 @@ export async function renderDashboardPage() {
   const userId = user.id;
 
   // Create a welcome message
-  const welcomeMessage = `Welcome, ${user.firstName}!`;
+  const welcomeMessage = `Welcome, ${user.userName}!`;
 
   // Insert the welcome message into your dashboard's HTML
   const welcomeElement = document.getElementById('welcome'); // replace 'welcome' with the actual id of your welcome message element
   welcomeElement.textContent = welcomeMessage;
 
   // Retrieve the todo lists from the user object
-  let todos = user.userTasks || [];
+  // let todos = user.userTasks || [];
+  let todos = user.preferencies || [];
 
   // Render the todo lists through the renderTodoList function / component
   const todoListContainer = document.getElementById('taskLists'); // replace 'taskLists' with the actual id of your container
