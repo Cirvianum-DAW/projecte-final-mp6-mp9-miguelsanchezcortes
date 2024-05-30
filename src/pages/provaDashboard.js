@@ -3,7 +3,11 @@
 import { renderTodoList } from '../components/todoList';
 import { deleteTask } from '../services/tasks';
 //import { displayErrorMessage } from '../components/errorMessage';
-import { updateLocalStorage } from '../utils/helpers';
+import {
+  getUserFromLocalStorage,
+  saveUserToLocalStorage,
+  updateLocalStorage,
+} from '../utils/helpers';
 
 export async function renderDashboardPage() {
   // Retrieve the user object from localStorage
@@ -54,11 +58,41 @@ export async function renderDashboardPage() {
       console.error(error);
     }
   }
+  async function handleAddTask(newTodo) {
+    try {
+      // 1st -> We create the task in the database
+      await createTask(userId, newTodo);
+      // 2nd -> We obtain again the list of todos in the database
+      console.log('getting all tasks');
+      const todos = await getAllTasks(userId);
+      // 3rd -> We update the local storage with the new list of todos
+      saveUserToLocalStorage(userId, todos);
+      // 4th -> Now yes, we can render the updated list of todos
+      render();
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   function render() {
     todoListContainer.innerHTML = '';
     renderTodoList(todos, 'taskLists', handleEdit, handleDelete);
   }
+
+  // async function render() {
+  //   try {
+  //     // 1st -> We obtain the list of todos in the database
+  //     const todos = await getAllTasks(userId);
+  //     // 2nd -> We update the local storage with the new list of todos
+  //     saveUserToLocalStorage(userId, todos);
+  //     // 3rd -> We render the updated list of todos
+  //     todoListContainer.innerHTML = '';
+  //     renderTodoList(todos, 'taskLists', handleEdit, handleDelete);
+  //   } catch (error) {
+  //     console.error('Error fetching tasks:', error);
+  //   }
+  // }
+  
 
   // function displayUserPreferences(user) {
   //   // Retrieve the preferences from the user object

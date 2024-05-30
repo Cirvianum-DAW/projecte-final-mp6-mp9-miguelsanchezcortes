@@ -12,7 +12,7 @@ export function saveUserToLocalStorage(userId, todos) {
   const user = JSON.parse(localStorage.getItem('user'));
 
   if (user && user.id === userId) {
-    user.userTasks = todos;
+    user.preferencies = todos;
     localStorage.setItem('user', JSON.stringify(user));
   }
 }
@@ -28,4 +28,14 @@ export function updateLocalTask(taskId, task) {
       localStorage.setItem('user', JSON.stringify(user));
     }
   }
+}
+export function updateLocalStorage(userId, todos) {
+  // Retrieve the user object from localStorage
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  // Update the user's tasks
+  user.preferencies = todos;
+
+  // Save the updated user object back to localStorage
+  localStorage.setItem('user', JSON.stringify(user));
 }
