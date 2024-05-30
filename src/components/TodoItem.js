@@ -26,7 +26,7 @@ export function renderTodoItem(todo, onEdit, onDelete) {
 
   const image = document.createElement('img');
   image.src = todo.image;
-  image.classList.add('mr-2');
+  image.classList.add('mr-2', 'w-25', 'h-20');
 
   const buttonContainer = document.createElement('div');
 
