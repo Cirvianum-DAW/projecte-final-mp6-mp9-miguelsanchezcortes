@@ -25,6 +25,10 @@ async function createTask(userId, task) {
 
 // UPDATE A TASK
 async function updateTask(userId, taskId, task) {
+  console.log('userId', userId);
+  console.log('taskId', taskId);
+  console.log('task', task);
+
   return fetchFromApi(`users/${userId}/Preferencies/${taskId}`, {
     method: 'PUT',
     body: JSON.stringify(task),
@@ -36,8 +40,6 @@ async function updateTask(userId, taskId, task) {
 
 // DELETE A TASK
 async function deleteTask(userId, taskId) {
-  console.log('userId', userId);
-  console.log('taskId', taskId);
   return fetchFromApi(`users/${userId}/Preferencies/${taskId}`, {
     method: 'DELETE',
   });

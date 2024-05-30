@@ -34,9 +34,9 @@ export async function renderDashboardPage() {
   const todoListContainer = document.getElementById('taskLists'); // replace 'taskLists' with the actual id of your container
 
   function handleEdit(todo) {
-    const newText = prompt('Edit todo', todo.title);
+    const newText = prompt('Edit todo', todo.name);
     if (newText) {
-      todo.title = newText;
+      todo.name = newText;
       updateLocalStorage(userId, todos);
       console.log('Hola');
       render();
