@@ -16,10 +16,11 @@ async function getTaskById(userId, taskId) {
 async function createTask(userId, task) {
   return fetchFromApi(`users/${userId}/preferencies`, {
     method: 'POST',
-    body: JSON.stringify(task),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    body: task,
+    // body: JSON.stringify(task),
+    // headers: {
+    //   'Content-Type': 'application/json',
+    // },
   });
 }
 
@@ -31,7 +32,8 @@ async function updateTask(userId, taskId, task) {
 
   return fetchFromApi(`users/${userId}/preferencies/${taskId}`, {
     method: 'PUT',
-    body: JSON.stringify(task),
+    body: task,
+    // body: JSON.stringify(task),
     headers: {
       'Content-Type': 'application/json',
     },
