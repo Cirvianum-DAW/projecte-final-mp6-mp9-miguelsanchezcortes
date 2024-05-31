@@ -4,17 +4,17 @@ import fetchFromApi from './fetchAPI';
 
 // GET ALL TASKS
 async function getAllTasks(userId) {
-  return fetchFromApi(`users/${userId}/Preferencies`);
+  return fetchFromApi(`users/${userId}/preferencies`);
 }
 
 // GET A SINGLE TASK BY ID
 async function getTaskById(userId, taskId) {
-  return fetchFromApi(`users/${userId}/Preferencies/${taskId}`);
+  return fetchFromApi(`users/${userId}/preferencies/${taskId}`);
 }
 
 // CREATE A NEW TASK
 async function createTask(userId, task) {
-  return fetchFromApi(`users/${userId}/Preferencies`, {
+  return fetchFromApi(`users/${userId}/preferencies`, {
     method: 'POST',
     body: JSON.stringify(task),
     headers: {
@@ -29,7 +29,7 @@ async function updateTask(userId, taskId, task) {
   console.log('taskId', taskId);
   console.log('task', task);
 
-  return fetchFromApi(`users/${userId}/Preferencies/${taskId}`, {
+  return fetchFromApi(`users/${userId}/preferencies/${taskId}`, {
     method: 'PUT',
     body: JSON.stringify(task),
     headers: {
@@ -40,7 +40,7 @@ async function updateTask(userId, taskId, task) {
 
 // DELETE A TASK
 async function deleteTask(userId, taskId) {
-  return fetchFromApi(`users/${userId}/Preferencies/${taskId}`, {
+  return fetchFromApi(`users/${userId}/preferencies/${taskId}`, {
     method: 'DELETE',
   });
 }

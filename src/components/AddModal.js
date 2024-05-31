@@ -16,12 +16,12 @@ export async function renderAddTaskModal(onSave) {
               <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
             </div>
             <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="due-date">Due Date</label>
-              <input type="date" id="due-date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="categoria">Categoria</label>
+              <input type="text" id="categoria" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
             </div>
             <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="status">Completed</label>
-              <input type="checkbox" id="status" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="img">Img</label>
+              <input type="text" id="img" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
             </div>
             <div class="flex items-center justify-between">
               <button type="button" id="save-task" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save Task</button>
@@ -46,8 +46,8 @@ export async function renderAddTaskModal(onSave) {
   const closeButton = modalContainer.querySelector('[data-modal-hide]');
   const saveButton = modalContainer.querySelector('#save-task');
   const titleInput = modalContainer.querySelector('#name');
-  const dueDateInput = modalContainer.querySelector('#due-date');
-  const statusInput = modalContainer.querySelector('#status');
+  const categoriaInput = modalContainer.querySelector('#categoria');
+  const imgInput = modalContainer.querySelector('#img');
 
   closeButton.addEventListener('click', () => {
     modalContainer.remove();
@@ -56,8 +56,8 @@ export async function renderAddTaskModal(onSave) {
   saveButton.addEventListener('click', async () => {
     const newTodo = {
       name: titleInput.value,
-      dueDate: dueDateInput.value,
-      status: statusInput.checked,
+      categoria: categoriaInput.value,
+      image: imgInput.value,
     };
 
     onSave(newTodo);

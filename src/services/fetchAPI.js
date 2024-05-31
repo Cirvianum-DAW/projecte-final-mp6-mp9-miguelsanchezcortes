@@ -10,18 +10,23 @@ async function fetchFromApi(endpoint, options = {}) {
   };
 
   const settings = {
-    method: 'get',
+    method: options.method || 'GET',
     headers: { ...defaultHeaders, ...options.headers },
     ...options,
   };
 
-  if (options.body) settings.body = JSON.stringify(options.body);
+  if (options.body) {
+    settings.body = JSON.stringify(options.body);
+  }
 
   try {
     const response = await fetch(url, settings);
     console.log('response', response);
-    if (response.status !== 200) {
-      throw new Error('Failed to fetch data from the API');
+
+    if (!response.ok) {
+      const errorText = await response.text(); // Obtenim el text de l'error
+      console.error('Error response from API:', errorText);
+      throw new Error(`Failed to fetch data from the API: ${response.statusText}`);
     }
 
     const data = await response.json();
@@ -31,4 +36,5 @@ async function fetchFromApi(endpoint, options = {}) {
     throw error;
   }
 }
+
 export default fetchFromApi;
