@@ -1,5 +1,5 @@
 // src/pages/Dashboard.js
-import { renderTodoList } from '../components/todoList';
+import { renderTodoList } from '../components/TodoList';
 import { renderAddTaskModal } from '../components/AddModal';
 import { deleteTask, updateTask,getAllTasks,createTask,getTaskById } from '../services/tasks';
 import { renderEditModal } from '../components/EditModal';
